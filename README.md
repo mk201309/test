@@ -20,16 +20,16 @@
 
 - PHP 檔案 MUST 只能使用 UTF-8 without BOM.
 
-- 檔案 SHOULD *either* 聲明符號 (classes, functions, constants, etc.) *or* 產生副作用
-  (e.g. generate output, change .ini settings, etc.) but SHOULD NOT do both  
+- 檔案 SHOULD *不論是* 聲明符號 (類別, 函示, 常數等) *還是* 產生副作用
+  (產生輸出, 更改 .ini 設定等) SHOULD NOT 同時進行
 
-- 命名空間 和 類別 MUST 遵循 [PSR-0][].
+- Namespaces  和 classes  MUST 遵循 [PSR-0][].
 
-- 類別名稱 MUST 宣告 `StudlyCaps`.
+- Class names MUST 宣告 `StudlyCaps`.
 
-- 類別常量 MUST 宣告為全大寫並用底線區分
+- Class constants MUST 宣告為全大寫並用底線區分
 
-- 方法名稱 MUST 宣告 `camelCase`.
+- Method names  MUST 宣告 `camelCase`.
 
 
 2. 檔案
@@ -46,15 +46,15 @@ PHP code MUST 只能使用 UTF-8 without BOM.
 
 ### 2.3. 副作用
 
-一個檔案 SHOULD 宣告新符號 (classes, functions, constants, etc.)
+一個檔案 SHOULD 宣告 new symbols (classes, functions, constants, etc.)
 並不會引起其他副作用, 或者 SHOULD 執行副作用的邏輯, 但
-SHOULD NOT 同時做.
+SHOULD NOT 同時進行.
 
-副作用(side effects) 意指執行無直接關係的宣告類別, 函式, 
-常數等, *僅僅是從包含的文件*.
+副作用(side effects) 意指執行無直接關係的 declaring classes, functions, constants, etc.,
+*僅僅從包含的文件*.
 
 副作用包含但不限於: 產生輸出, 清楚的使用 `require` or `include`, 連結外部服務, 
-修改ini設定, 發出碩物或異常, 修改全局或靜態變量, 讀取或寫入檔案, 以此類推.
+修改ini設定, 發出錯誤或異常, 修改全局或靜態變量, 讀取或寫入檔案, 以此類推.
 
 
 下面是同時宣告和副作用應該避免的範例
@@ -121,8 +121,7 @@ class Foo
 }
 ```
 
-5.2.x 之前的代碼編寫 SHOULD 使用 pseudo-namespacing convention 在類別名稱加上
-前綴字 `Vendor_`.
+5.2.x 之前的代碼編寫 SHOULD 使用偽命名空間在類別名稱加上前綴字 `Vendor_`.
 
 ```php
 <?php
